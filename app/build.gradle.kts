@@ -70,9 +70,16 @@ dependencies {
 
     // dagger-hilt
     implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
+//    kapt(libs.hilt.compiler)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.hilt.viewmodel)
+//    implementation(libs.hilt.viewmodel)
 
     implementation(libs.lifecycle.viewmodel)
+//    implementation(libs.lifecycle.viewmodel.compose)
+
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.navigation.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
