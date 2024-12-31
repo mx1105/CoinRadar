@@ -1,7 +1,5 @@
-package com.mnaik.coinradar.data.remote.dto
+package com.mnaik.coinradar.data.remote.dto.coin
 
-
-import com.google.gson.annotations.SerializedName
 
 data class Contract(
     val contract: String,

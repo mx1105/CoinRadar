@@ -1,7 +1,7 @@
 package com.mnaik.coinradar.domain.repository
 
-import com.mnaik.coinradar.data.remote.dto.CoinDetailDto
-import com.mnaik.coinradar.data.remote.dto.CoinDto
+import com.mnaik.coinradar.data.remote.dto.coin.CoinDetailDto
+import com.mnaik.coinradar.data.remote.dto.coin.CoinDto
 
 /**
  * Created by Monil Naik on 27-12-2024.

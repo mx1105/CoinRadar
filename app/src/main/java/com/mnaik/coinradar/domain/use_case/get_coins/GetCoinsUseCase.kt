@@ -1,7 +1,7 @@
 package com.mnaik.coinradar.domain.use_case.get_coins
 
 import com.mnaik.coinradar.common.Resource
-import com.mnaik.coinradar.data.remote.dto.toCoin
+import com.mnaik.coinradar.data.remote.dto.coin.toCoin
 import com.mnaik.coinradar.domain.model.Coin
 import com.mnaik.coinradar.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.Flow

@@ -1,8 +1,8 @@
 package com.mnaik.coinradar.data.repository
 
 import com.mnaik.coinradar.data.remote.CoinApi
-import com.mnaik.coinradar.data.remote.dto.CoinDetailDto
-import com.mnaik.coinradar.data.remote.dto.CoinDto
+import com.mnaik.coinradar.data.remote.dto.coin.CoinDetailDto
+import com.mnaik.coinradar.data.remote.dto.coin.CoinDto
 import com.mnaik.coinradar.domain.repository.CoinRepository
 import javax.inject.Inject
 

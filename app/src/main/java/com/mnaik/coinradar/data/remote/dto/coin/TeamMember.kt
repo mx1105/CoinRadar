@@ -1,4 +1,4 @@
-package com.mnaik.coinradar.data.remote.dto
+package com.mnaik.coinradar.data.remote.dto.coin
 
 
 data class TeamMember(

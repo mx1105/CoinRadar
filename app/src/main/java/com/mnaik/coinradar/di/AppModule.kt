@@ -3,7 +3,9 @@ package com.mnaik.coinradar.di
 import com.mnaik.coinradar.common.Constants
 import com.mnaik.coinradar.data.remote.CoinApi
 import com.mnaik.coinradar.data.repository.CoinRepositoryImpl
+import com.mnaik.coinradar.data.repository.TagRepositoryImpl
 import com.mnaik.coinradar.domain.repository.CoinRepository
+import com.mnaik.coinradar.domain.repository.TagRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,6 +33,12 @@ object AppModule {
     @Singleton
     fun provideCoinRepository(api: CoinApi): CoinRepository {
         return CoinRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTagRepository(api: CoinApi): TagRepository {
+        return TagRepositoryImpl(api)
     }
 
 }

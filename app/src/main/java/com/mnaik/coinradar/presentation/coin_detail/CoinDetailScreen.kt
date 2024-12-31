@@ -24,9 +24,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.accompanist.flowlayout.FlowRow
-import com.mnaik.coinradar.presentation.coin_detail.component.CoinTag
+import androidx.navigation.NavController
+import com.mnaik.coinradar.presentation.Screen
 import com.mnaik.coinradar.presentation.coin_detail.component.TeamListItem
+import com.mnaik.coinradar.presentation.component.CustomFlowRow
 
 /**
  * Created by Monil Naik on 28-12-2024.
@@ -34,7 +35,7 @@ import com.mnaik.coinradar.presentation.coin_detail.component.TeamListItem
 
 @Composable
 fun CoinDetailScreen(
-    viewModel: CoinViewModel = hiltViewModel()
+    navController: NavController, viewModel: CoinViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
@@ -43,6 +44,7 @@ fun CoinDetailScreen(
                 modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(20.dp)
             ) {
                 item {
+                    Spacer(modifier = Modifier.height(20.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -64,30 +66,32 @@ fun CoinDetailScreen(
                         )
                     }
                     Spacer(modifier = Modifier.height(15.dp))
-                    Text(
-                        text = coin.description, style = MaterialTheme.typography.bodyMedium
-                    )
-                    Spacer(modifier = Modifier.height(15.dp))
-                    Text(
-                        text = "Tag", style = MaterialTheme.typography.headlineSmall
-                    )
-                    Spacer(modifier = Modifier.height(15.dp))
-                    FlowRow(
-                        mainAxisSpacing = 10.dp,
-                        crossAxisSpacing = 10.dp,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        coin.tags.forEach { tag ->
-                            CoinTag(tag = tag)
-                        }
+                    if (!coin.description.isNullOrEmpty()) {
+                        Text(
+                            text = coin.description, style = MaterialTheme.typography.bodyMedium
+                        )
+                        Spacer(modifier = Modifier.height(15.dp))
                     }
-                    Spacer(modifier = Modifier.height(15.dp))
-                    Text(
-                        text = "Team Member", style = MaterialTheme.typography.headlineSmall
-                    )
-                    Spacer(modifier = Modifier.height(15.dp))
+
+                    if (coin.tags.isNotEmpty()) {
+                        Text(
+                            text = "Tag", style = MaterialTheme.typography.headlineSmall
+                        )
+                        Spacer(modifier = Modifier.height(15.dp))
+
+                        CustomFlowRow(coin.tags, onItemClick = { value ->
+                            navController.navigate(Screen.TagDetailScreen.route + "/${value.id}")
+                        })
+                        Spacer(modifier = Modifier.height(15.dp))
+                    }
+                    if (coin.team.isNotEmpty()) {
+                        Text(
+                            text = "Team Member", style = MaterialTheme.typography.headlineSmall
+                        )
+                        Spacer(modifier = Modifier.height(15.dp))
+                    }
                 }
-                items(coin.team) { teamMember ->
+                if (coin.team.isNotEmpty()) items(coin.team) { teamMember ->
                     TeamListItem(
                         teamMember = teamMember, modifier = Modifier
                             .fillMaxWidth()

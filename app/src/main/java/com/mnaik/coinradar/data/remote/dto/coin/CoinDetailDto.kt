@@ -1,4 +1,4 @@
-package com.mnaik.coinradar.data.remote.dto
+package com.mnaik.coinradar.data.remote.dto.coin
 
 
 import com.google.gson.annotations.SerializedName
@@ -36,12 +36,14 @@ data class CoinDetailDto(
 )
 
 fun CoinDetailDto.toCoinDetail(): CoinDetail {
-    return CoinDetail(id = id,
+    return CoinDetail(
+        id = id,
         name = name,
         symbol = symbol,
         team = team,
         rank = rank,
         description = description,
         isActive = isActive,
-        tags = tags.map { it.name })
+        tags = tags
+    )
 }

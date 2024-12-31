@@ -13,11 +13,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mnaik.coinradar.data.remote.dto.TeamMember
+import com.mnaik.coinradar.common.Constants
+import com.mnaik.coinradar.data.remote.dto.coin.TeamMember
 import com.mnaik.coinradar.presentation.Screen
 import com.mnaik.coinradar.presentation.coin_detail.CoinDetailScreen
 import com.mnaik.coinradar.presentation.coin_detail.component.TeamListItem
 import com.mnaik.coinradar.presentation.coin_list.CoinListScreen
+import com.mnaik.coinradar.presentation.tag_detail.TagDetailScreen
 import com.mnaik.coinradar.presentation.theme.CoinRadarTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,8 +38,11 @@ class MainActivity : ComponentActivity() {
                         composable(route = Screen.CoinListScreen.route) {
                             CoinListScreen(navController)
                         }
-                        composable(route = Screen.CoinDetailScreen.route + "/{coinId}") {
-                            CoinDetailScreen()
+                        composable(route = Screen.CoinDetailScreen.route + "/{${Constants.PARAM_COIN_ID}}") {
+                            CoinDetailScreen(navController)
+                        }
+                        composable(route = Screen.TagDetailScreen.route + "/{${Constants.PARAM_TAG_ID}}") {
+                            TagDetailScreen(navController)
                         }
                     }
                 }
