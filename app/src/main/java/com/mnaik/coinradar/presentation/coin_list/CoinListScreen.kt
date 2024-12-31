@@ -38,7 +38,7 @@ fun CoinListScreen(
 
         }
 
-        if(state.error.isNotBlank()){
+        if (state.error.isNotBlank()) {
             Text(
                 text = state.error,
                 color = MaterialTheme.colorScheme.error,
@@ -50,7 +50,7 @@ fun CoinListScreen(
             )
         }
 
-        if(state.isLoading){
+        if (state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }

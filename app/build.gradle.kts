@@ -63,6 +63,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+//    Ui
+    implementation(libs.flowlayout)
+
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
@@ -72,7 +75,7 @@ dependencies {
     implementation(libs.hilt)
 //    kapt(libs.hilt.compiler)
     kapt(libs.hilt.android.compiler)
-    kapt(libs.hilt.viewmodel)
+//    kapt(libs.hilt.viewmodel)
 //    implementation(libs.hilt.viewmodel)
 
     implementation(libs.lifecycle.viewmodel)

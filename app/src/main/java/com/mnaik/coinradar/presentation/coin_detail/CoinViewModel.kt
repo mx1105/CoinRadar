@@ -43,7 +43,7 @@ class CoinViewModel @Inject constructor(
                 }
 
                 is Resource.Success -> {
-                    _state.value = CoinDetailState(coins = result.data)
+                    _state.value = CoinDetailState(coin = result.data)
                 }
             }
         }.launchIn(viewModelScope)
