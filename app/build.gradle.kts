@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt.kotlin.android)
     id("kotlin-kapt")
-
 }
 
 android {
@@ -27,8 +26,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -63,7 +61,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-//    Ui
+    //    Ui
     implementation(libs.flowlayout)
 
     // Retrofit
@@ -73,14 +71,11 @@ dependencies {
 
     // dagger-hilt
     implementation(libs.hilt)
-//    kapt(libs.hilt.compiler)
     kapt(libs.hilt.android.compiler)
-//    kapt(libs.hilt.viewmodel)
-//    implementation(libs.hilt.viewmodel)
 
     implementation(libs.lifecycle.viewmodel)
-//    implementation(libs.lifecycle.viewmodel.compose)
 
+    //    Navigation
     implementation(libs.androidx.navigation)
     implementation(libs.androidx.navigation.compose)
 
